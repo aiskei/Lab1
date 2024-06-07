@@ -51,7 +51,7 @@ function Form() {
             <div>
                 <form>
                     <label>
-                        Name
+                        Name:
                         <input
                             type="text"
                             value={name}
@@ -59,7 +59,7 @@ function Form() {
                         />
                     </label>
                     <label>
-                        Last name
+                        Last name:
                         <input
                             type="text"
                             value={lastName}
@@ -67,7 +67,7 @@ function Form() {
                         />
                     </label>
                     <label>
-                        Age
+                        Age:
                         <input
                             type="text"
                             value={age}
@@ -75,7 +75,7 @@ function Form() {
                         />
                     </label>
                     <label>
-                        City
+                        City:
                         <input
                             type="text"
                             value={city}
@@ -83,7 +83,7 @@ function Form() {
                         />
                     </label>
                     <label>
-                        Email
+                        Email:
                         <input
                             type="text"
                             value={email}
@@ -91,7 +91,7 @@ function Form() {
                         />
                     </label>
                     <label>
-                        Occupation
+                        Occupation:
                         <input
                             type="text"
                             value={occupation}
@@ -107,5 +107,4 @@ function Form() {
         </>
     )
 }
-
 export default Form
