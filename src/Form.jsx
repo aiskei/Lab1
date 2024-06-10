@@ -1,101 +1,84 @@
 import React from 'react'
 import { useState } from 'react'
+import Create from './Create'
 
 function Form() {
     //state variable for input fields: name, lastname, age, city, email, and occupation
-    const [name, setName] = useState('')
-    const [lastName, setLastName] = useState('')
-    const [age, setAge] = useState('')
-    const [city, setCity] = useState('')
-    const [email, setEmail] = useState('')
-    const [occupation, setOccupation] = useState('')
+    const [user, setUser] = useState({
+        name: '',
+        lastName: '',
+        age: '',
+        city: '',
+        email: '',
+        occupation: ''
+    })
 
-    //function for handling name change
-    const handleNameChange = (event) => {
-        setName(event.target.value)
-    }
-
-    //function for handling lastname change
-    const handleLastNameChange = (event) => {
-        setLastName(event.target.value)
-    }
-
-    //function for handling age change
-    const handleAgeChange = (event) => {
-        setAge(event.target.value)
-    }
-
-    //function for handling city change
-    const handleCityChange = (event) => {
-        setCity(event.target.value)
-    }
-
-    //function for handling email
-    const handleEmailChange = (event) => {
-        setEmail(event.target.value)
-    }
-
-    //function for handling occupation change
-    const handleOcuppationChange = (event) => {
-        setOccupation(event.target.value)
-    }
-
-    //function for handling submit
+    //function to handle submit change
+    //create a variable to assign the previous state
     const submitChange = (event) => {
-        event.preventDefault()
-        console.log(name, lastName, age, city, email, occupation)
+        const { name, value } = event.target
+        setUser((prevState) => ({ ...prevState, [name]: value }))
     }
+
+    console.log(user)
 
     return (
         <>
             <div>
+                <Create />
                 <form>
                     <label>
                         Name:
                         <input
                             type="text"
-                            value={name}
-                            onChange={handleNameChange}
+                            name="name"
+                            value={user.name}
+                            onChange={submitChange}
                         />
                     </label>
                     <label>
                         Last name:
                         <input
                             type="text"
-                            value={lastName}
-                            onChange={handleLastNameChange}
+                            name="lastName"
+                            value={user.lastName}
+                            onChange={submitChange}
                         />
                     </label>
                     <label>
                         Age:
                         <input
                             type="text"
-                            value={age}
-                            onChange={handleAgeChange}
+                            name="age"
+                            value={user.age}
+                            onChange={submitChange}
                         />
                     </label>
                     <label>
                         City:
                         <input
                             type="text"
-                            value={city}
-                            onChange={handleCityChange}
+                            name="city"
+                            value={user.city}
+                            onChange={submitChange}
                         />
                     </label>
                     <label>
                         Email:
                         <input
                             type="text"
-                            value={email}
-                            onChange={handleEmailChange}
+                            name="email"
+                            value={user.email}
+                            onChange={submitChange}
                         />
                     </label>
                     <label>
                         Occupation:
                         <input
                             type="text"
-                            value={occupation}
-                            onChange={handleOcuppationChange}
+                            name="occupation"
+                            value={user.occupation}
+                            onChange={submitChange}
                         />
                     </label>
                 </form>
