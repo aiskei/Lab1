@@ -1,8 +1,11 @@
 import React from 'react'
 import { useState } from 'react'
-import Create from './Create'
+// import Create from './Create'
+import UserDetails from './userDetails'
 
 function Form() {
+    const [showUserInfo, setUserInfo] = useState(false);
+
     //state variable for input fields: name, lastname, age, city, email, and occupation
     const [user, setUser] = useState({
         name: '',
@@ -17,7 +20,8 @@ function Form() {
     //create a variable to assign the previous state
     const submitChange = (event) => {
         const { name, value } = event.target
-        setUser((prevState) => ({ ...prevState, [name]: value }))
+        setUser((prevState) => ({ ...prevState, [name]: value }));
+        setUserInfo(true)
     }
 
     console.log(user)
@@ -25,7 +29,7 @@ function Form() {
     return (
         <>
             <div>
-                <Create />
+                {/* <Create /> */}
                 <form>
                     <label>
                         Name:
@@ -86,6 +90,18 @@ function Form() {
                 <button type="submit" onClick={submitChange}>
                     Submit
                 </button>
+
+                <>
+                    <UserDetails
+                        showUserInfo={showUserInfo}
+                        name={user.name}
+                        lastName={user.lastName}
+                        age={user.age}
+                        city={user.city}
+                        email={user.email}
+                        occupation={user.occupation}
+                />
+                </>
             </div>
         </>
     )

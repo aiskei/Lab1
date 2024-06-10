@@ -1,4 +1,9 @@
+import React from 'react'
 const UserDetails = (props) => {
+    if (!props.showUserInfo) {
+        return null
+    }
+
     return (
         <>
             <p>Name: {props.name}</p>
