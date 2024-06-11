@@ -1,10 +1,11 @@
+import React from 'react'
 import './App.css'
 import Form from './Form'
 
 function App() {
     return (
         <>
-            <h1>React Lab1 assignment</h1>
+            <h1>Registration Form</h1>
             <Form />
         </>
     )
