@@ -5,24 +5,46 @@ import UserDetails from './userDetails'
 import ErrorBoundary from './ErrorBoundary'
 
 function Form() {
+    const [name, setName] = useState('');
+    const [lastName, setLastName] = useState('');
+    const [age, setAge] = useState('');
+    const [city, setCity] = useState('');
+    const [email, setEmail] = useState('');
+    const [occupation, setOccupation] = useState('');
+
+
     const [showUserInfo, setUserInfo] = useState(false)
     const myButtonRef = useRef(null)
 
-    //state variable for input fields: name, lastname, age, city, email, and occupation
-    const [user, setUser] = useState({
-        name: '',
-        lastName: '',
-        age: '',
-        city: '',
-        email: '',
-        occupation: ''
-    })
+    //function to handle change of event
+    const handleNameChange = (event) => {
+        setName(event.target.value);
+    }
+
+    const handleLastNameChange = (event) => {
+        setLastName(event.target.value);
+    }
+
+    const handleAgeChange = (event) => {
+        setAge(event.target.value);
+    }
+
+    const handleCityChange = (event) => {
+        setCity(event.target.value);
+    }
+
+    const handleEmailChange = (event) => {
+        setEmail(event.target.value);
+    }
+
+    const handleOccupationChange = (event) => {
+        setOccupation(event.target.value);
+    }
 
     //function to handle submit change
-    //create a variable to assign the previous state
     const submitChange = (event) => {
-        const { name, value } = event.target
-        setUser((prevState) => ({ ...prevState, [name]: value }))
+        event.preventDefault();
+
         setUserInfo(true)
         myButtonRef.current.style.background = 'blue'
     }
@@ -40,8 +62,8 @@ function Form() {
                         <input
                             type="text"
                             name="name"
-                            value={user.name}
-                            onChange={submitChange}
+                            value={name}
+                            onChange={handleNameChange}
                         />
                     </label>
                     <label>
@@ -49,8 +71,8 @@ function Form() {
                         <input
                             type="text"
                             name="lastName"
-                            value={user.lastName}
-                            onChange={submitChange}
+                            value={lastName}
+                            onChange={handleLastNameChange}
                         />
                     </label>
                     <label>
@@ -58,8 +80,8 @@ function Form() {
                         <input
                             type="text"
                             name="age"
-                            value={user.age}
-                            onChange={submitChange}
+                            value={age}
+                            onChange={handleAgeChange}
                         />
                     </label>
                     <label>
@@ -67,8 +89,8 @@ function Form() {
                         <input
                             type="text"
                             name="city"
-                            value={user.city}
-                            onChange={submitChange}
+                            value={city}
+                            onChange={handleCityChange}
                         />
                     </label>
                     <label>
@@ -76,8 +98,8 @@ function Form() {
                         <input
                             type="text"
                             name="email"
-                            value={user.email}
-                            onChange={submitChange}
+                            value={email}
+                            onChange={handleEmailChange}
                         />
                     </label>
                     <label>
@@ -85,8 +107,8 @@ function Form() {
                         <input
                             type="text"
                             name="occupation"
-                            value={user.occupation}
-                            onChange={submitChange}
+                            value={occupation}
+                            onChange={handleOccupationChange}
                         />
                     </label>
                 </form>
@@ -99,12 +121,12 @@ function Form() {
                 <>
                     <UserDetails
                         showUserInfo={showUserInfo}
-                        name={user.name}
-                        lastName={user.lastName}
-                        age={user.age}
-                        city={user.city}
-                        email={user.email}
-                        occupation={user.occupation}
+                        name={name}
+                        lastName={lastName}
+                        age={age}
+                        city={city}
+                        email={email}
+                        occupation={occupation}
                     />
                 </>
             </div>
